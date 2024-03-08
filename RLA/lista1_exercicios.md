@@ -1,6 +1,6 @@
 # UNIFOR 
-** nome ** : Carlyle Martins
-** disciplina ** : Raciocínio Lógico e Algoritmo 
+**nome** : Carlyle Martins
+**disciplina** : Raciocínio Lógico e Algoritmo 
 
 ## Lista de exercícios 1
 
