@@ -7,9 +7,9 @@
 ### Exercícios 3
 represente, em um fluxograma e pseudocódigo num algaritmo para  determinar  se um número  inteiro e positivo é par ou impar
 
-###Fluxograma
+#### Fluxograma
  
- 
+
 ```mermaid
 flowchart TD
 A([INICIO]) --> B{{Digite um número: }}
@@ -44,7 +44,7 @@ FIM_SE
 FIM
 ````
 
-####Teste
+#### Teste
 | num | num >= 0 | resto | resto == 0 | saída |
 | -- | -- | -- | -- | -- |
 | -1 | False | | |"o número deve ser positivo"|
