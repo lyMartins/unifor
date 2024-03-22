@@ -102,22 +102,49 @@ Atualize o algoritmo para determinar se um número inteiro e positivo é par ou 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+flowchart TD
+A([INICIO]) --> B{{Digite um número}}
+B --> C[\num,res\]
+C --> D{num<=0}
+D--loop-->B
+D--TRUE-->E[res = num % 2]
+E-->F{res == 0}
+F--FALSE-->G{{esse número 'num' é impar}}
+F--TRUE-->H{{esse número 'num' é par}}
+H-->I([FIM])
+G-->I
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+ ALGORITMO par ou impar
+ DECLARE num, res : inteiro
+ INICIO
+ ESCREVA "Digite um número"
+ LEIA  num
+ ENQUANTO num < 0 FAÇA
+ ESCREVA "Digite um número positivo"
+ FIM_ENQUANTO
+ SE num>=0 ENTAO
+ res <- n%2 
+ SE res == 0 ENTAO
+ ESCREVA "esse número 'num' é par"
+ SENAO
+ ESCREVA "esse número 'num' é impar"
+ FIM_SE
+ FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| Iteração | num | res | Saída | 
+| -- | -- | -- | -- | 
+| 1 | 7 | 1 | "esse número 7 é impar" |
+| 2 | 12 | 0 | "esse número 12 é par" |
+| 3 | -5 | Não definido | "esse número 3 é impar" |   
+| 4 | 3 | 1 | "esse número 3 é impar" |
+
 
 ### Exercício 02 (2.5 pontos)
 Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas os múltiplos de 3.
@@ -126,14 +153,30 @@ Faça um algoritmo que exiba na tela uma contagem de 0 até 30, exibindo apenas 
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B[\num\]
+B --> C[num = 0]
+C --> D{num <=30}
+D-->E{num % 3 = 0}
+E-->F{{num}}
+F-->G[num <- num + 3]
+G-->H([FIM])
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+ ALGORITMO Contagem30
+ DECLARE num
+ INICIO
+num <- 0
+ENQUANTO num <= 30 FAÇA
+num % 3 = 0 ENTAO
+ESCREVA num
+FIM SE 
+num <- num + 3
+FIM ENQUANTO
+ FIM
+
 ```
 
 #### Teste de mesa (0.5 ponto)
@@ -150,15 +193,36 @@ Por exemplo, para a sequência {12, 17, 4, -6, 8, 0}, o seu programa deve escrev
 #### Fluxograma (1.0 ponto)
 
 ```mermaid
-flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite um número}}
+B --> C[\num,res\]
+C --> D{num<=0}
+D--loop-->B
+D--TRUE-->E[res = num % 2]
+E-->F{res == 0}
+F--FALSE-->G{{esse número 'num' é impar}}
+F--TRUE-->H{{esse número 'num' é par}}
+H-->I([FIM])
+G-->I
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+ ALGORITMO Soma
+ DECLARE sequencia, tamanho, soma, i : INTEIRO
+ INICIO
+ ESCREVA "Insira o tamanho da sequencia"
+ Leia tamanho
+ PARA i DE 0 A tamanho-1 FAÇA
+ ESCREVA "Digite um valor inteiro 'i+1' : "
+ LEIA sequencia[i] 
+ FIM PARA
+
+soma <- 0
+PARA i DE 0 A  tamanho -1 FAÇA 
+	soma <- soma + sequencia[i]
+	FIM PARA 
+	ESCREVA "A soma dos números é: " ,  soma
 ```
 
 #### Teste de mesa (0.5 ponto)
@@ -183,8 +247,29 @@ A([INICIO]) --> B([FIM])
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ClassificaCategoria
-FIM_ALGORITMO
+ALGORITMO CalculoMediaNotas
+DECLARE nota, soma, contador: REAL
+
+INICIO 
+	 soma <- 0
+	 contador <- 0
+
+	ENQUANTO nota < 0 FAÇA
+		ESCREVA "Digite a nota do aluno"
+		LEIA nota
+
+		SE nota >= 0 ENTAO
+			soma <- soma + nota
+			contador <- contador + 1
+		FIM SE 
+		FIM ENQUANTO
+
+		SE contador > 0 ENTAO
+			media <- soma/contador 
+			ESCREVA "A média das notas é : ', edia'"
+			ESCREVA "Foram digitadas ' , contador, " notas válidas."
+		FIM SE
+	FIM 
 ```
 
 #### Teste de mesa (0.5 ponto)
