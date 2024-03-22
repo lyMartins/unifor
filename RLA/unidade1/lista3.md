@@ -241,7 +241,8 @@ Ex. Foram lidas 14 notas. A média aritmética é 6.75!
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) -->B{{Digite a nota do aluno}}
+B-->C
 ```
 
 #### Pseudocódigo (1.0 ponto)
