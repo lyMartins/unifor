@@ -50,14 +50,34 @@ Dadas duas variáveis, $a$ e $b$, implemente e teste um algoritmo para trocar os
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+flowchart TD
+A([INICIO]) --> B{{Digite o valor da a: }}
+B --> C[\a\]
+C --> D{{Digite o valor da b: }}
+D --> E[\b\]
+E --> F[aux = a]
+F --> G[a = b]
+G --> H[b = aux]
+H --> I{{"a =", a}}
+I --> J{{"b =", b}}
+```
+
 ```
 
 #### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo TrocaValores
-FIM_ALGORITMO
+DECLARE a,b 
+ESCREVA "Digite o valor da a"
+LEIA a
+ESCREVA "Digite o valor da b"
+LEIA b
+aux <- a
+a <- b
+aux <- b
+ESCREVA "a =", a
+ESCREVA "b =", b
 ```
 
 #### Teste de mesa (0.25 ponto)
@@ -76,14 +96,43 @@ Será considerado aprovado o aluno que tirar $nota$ 50 ou maior (no intervalo de
 
 ```mermaid
 flowchart TD
-A([INICIO]) --> B([FIM])
+A([INICIO]) --> B{{Digite o número de alunos: }}
+B --> C[\n\]
+C --> D[\cont = 0\]
+D --> E[\i = 1\]
+E --> F{i <= n}
+F --FALSE--> W{{Número de alunos aprovados: cont}}
+W --> Z([FIM])
+F --TRUE--> G{{Digite a nota do aluno, i}}
+G --> H[\nota\]
+H --> I{"nota >= 50 <br>E <br>nota <=100"}
+I --TRUE--> J[\cont =+ 1\]
+I --FALSE--> K[\i =+ 1\]
+J --> K
+K --LOOP--> F
 ```
 
 #### Pseudocódigo (0.5 ponto)
 
 ```
 Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+DECLARE n,nota,cont,i : REAIS
+INICIO
+ESCREVA "Digite o numero de alunos :"
+LEIA n
+cont = 0
+i = 1
+ENQUANTO i <= n FAÇA
+ESCREVA "Digite a nota do aluno :", i
+LEIA nota
+SE nota >= 5- e nota <= 100 ENTAO
+ cont = +1
+FIM ENQUANTO
+SENAO
+ESCREVA "Numero de alunos aprovados :", cont
+FIM
+
+
 ```
 
 #### Teste de mesa (0.25 ponto)
@@ -109,7 +158,22 @@ A([INICIO]) --> B([FIM])
 
 ```
 Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+INICIO
+DECLARE n,num,soma
+ESCREVA "Digite a quantidade de números (n>=):"
+SE n >= 0 ENTAO
+soma = 0
+i=0
+SENAO
+ESCREVA "O valor deve ser maior ou igual a zero"
+ENQUANTO i <= n FAÇA
+ESCREVA "Digite um número:"
+soma =+ num
+i= +1
+SENAO
+ESCREVA "A soma dos numeros é, soma"
+FIM
+
 ```
 
 #### Teste de mesa (0.25 ponto)
@@ -136,7 +200,13 @@ A([INICIO]) --> B([FIM])
 
 ```
 Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+DECLARE n,i
+ESCREVA "Digite o número de termos da série S:"
+S = 0
+PARA i = 0
+
+
+
 ```
 
 #### Teste de mesa (0.25 ponto)
