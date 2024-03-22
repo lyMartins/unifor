@@ -9,7 +9,7 @@
 **Aluno(a):** Carlyle Martins <br>
 **Matrícula:** 2410305 <br>
 
-**1a chamada (Sim/Não):** preencha com a opção correta <br>
+**1a chamada (Sim/Não):** sim <br>
 **2a chamada (Sim/Não):** preencha com a opção correta
 
 # Avaliação Diagnóstica 1
