@@ -1,13 +1,13 @@
 
 <img src="https://drive.google.com/uc?id=1SOzRTjUt7cuBJpSqoK90fcAiKBrnpUJo" width="400">
 
-**Curso:** preencha com seus dados <br>
-**Disciplina:** preencha com seus dados <br>
+**Curso:** Engenharia da Computação <br>
+**Disciplina:** Raciocínio Logico e algoritmo <br>
 **Código/Turma:** preencha com seus dados <br>
 **Professor:** Ricardo Carubbi <br>
 **Data:** preencha com a data de envio <br>
-**Aluno(a):** preencha com seus dados <br>
-**Matrícula:** preencha com seus dados <br>
+**Aluno(a):** Carlyle Martins <br>
+**Matrícula:** 2410305 <br>
 
 **1a chamada (Sim/Não):** preencha com a opção correta <br>
 **2a chamada (Sim/Não):** preencha com a opção correta
@@ -50,7 +50,6 @@ Dadas duas variáveis, $a$ e $b$, implemente e teste um algoritmo para trocar os
 
 ```mermaid
 flowchart TD
-flowchart TD
 A([INICIO]) --> B{{Digite o valor da a: }}
 B --> C[\a\]
 C --> D{{Digite o valor da b: }}
@@ -62,7 +61,7 @@ H --> I{{"a =", a}}
 I --> J{{"b =", b}}
 ```
 
-```
+
 
 #### Pseudocódigo (0.5 ponto)
 
@@ -199,13 +198,17 @@ A([INICIO]) --> B([FIM])
 #### Pseudocódigo (0.5 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-DECLARE n,i
-ESCREVA "Digite o número de termos da série S:"
+ALGORITMO TERMOS
+DECLARE n,s,i,numerador,denominador,termo
 S = 0
-PARA i = 0
-
-
+PARA i DE 0 ATÉ n  PASSO 1 FAÇA
+numerador = 2 * i + 1
+denominador = 2 * i + 2
+termo = numerador / denominador
+S + = termo
+FIM_PARA
+ESCREVA "Soma da série S é," S
+FIM
 
 ```
 
@@ -230,8 +233,18 @@ A([INICIO]) --> B([FIM])
 #### Pseudocódigo (1.0 ponto)
 
 ```
-Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+ALGORITMO FATORIAL
+DECLARE n,fator,i
+INICIO
+SE n>= 0 ENTÃO
+fator = 1
+PARA i DE 1 ATÉ n PASSO 1 FAÇA
+fator = fator * i
+FIM_PARA
+ESCREVA "O fatorial de, n, é:", fator
+SENAO
+ESCREVA "O valor deve ser maior ou igual a zero"
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
@@ -258,7 +271,16 @@ A([INICIO]) --> B([FIM])
 
 ```
 Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+DECLARE a,b,i,n,termo_atual
+INICIO
+ESCREVA "Número de termos da série de Fibonacci"
+PARA i DE 1 ATÉ n PASSO 1 FAÇA
+termo_atual = a + b
+a = b
+b = termo_atual
+FIM_PARA
+FIM
+
 ```
 #### Teste de mesa (0.5 ponto)
 
@@ -282,7 +304,21 @@ A([INICIO]) --> B([FIM])
 
 ```
 Algoritmo ContaAprovacoes
-FIM_ALGORITMO
+DECLARE num,num_inv,digito,numero
+ESCREVA "Digite um número inteiro:"
+LEIA num
+SE num >= 0 ENTAO
+num_inv = 0
+ ENQUANTO num = 0 FAÇA
+ digito = numero % 10
+ num_inv = num_inv * 10 + digito
+ numero = numero / 10
+  FIM_ENQUANTO
+ESCREVA "Numero invertido, num_inv"
+SENAO
+ ESCREVA "O numero deve ser positivo"
+FIM_SE
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
