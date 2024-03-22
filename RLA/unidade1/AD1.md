@@ -121,17 +121,17 @@ ESCREVA "Digite o numero de alunos :"
 LEIA n
 cont = 0
 i = 1
-ENQUANTO i <= n FAÇA
-ESCREVA "Digite a nota do aluno :", i
-LEIA nota
-SE nota >= 5- e nota <= 100 ENTAO
- cont = +1
+ENQUANTO i<=n FAÇA
+	ESCREVA "Digite nota do aluno",i
+	LEIA nota
+	SE nota>=50 E 100>=nota  ENTAO
+		cont = cont+1
+	SENAO
+		i = i + 1
+	FIM SE
 FIM ENQUANTO
-SENAO
 ESCREVA "Numero de alunos aprovados :", cont
 FIM
-
-
 ```
 
 #### Teste de mesa (0.25 ponto)
