@@ -27,22 +27,32 @@ I --> Z
 
 #### Pseudocódigo (0,5 ponto)
 ```
-1  ALGORTIMO verifica_par_impar
-2  DECLARE numero, resto: INTEIRO
-3  ESCREVA "Digite um número: "
-4  INICIO
-4  LEIA numero
-5  SE numero >= 0 ENTAO                  // verifica se o inteiro é positivo
-6    resto = numero % 2                 // calcula o resto da divisão por 2
-7    SE resto == 0 ENTAO                // verifica se o resto é igual a zero
-8      ESCREVA "O número é par!"
-9    SENAO
-10     ESCREVA "O número é impar!"
-11   FIM_SE
-11  SENAO                                // caso inteiro for negativo (condição linha 5)
-12    ESCREVA "O número deve ser postivo!"
-13  FIM_SE
-13 FIM
+ALGORTIMO verifica_par_impar
+DECLARE numero, resto: INTEIRO
+
+INICIO
+
+   ESCREVA "Digite um número: "
+   LEIA numero  
+
+   // verifica se o inteiro é positivo
+   SE numero >= 0 ENTAO                 
+      resto = numero % 2                 
+
+      // calcula o resto da divisão por 2
+      SE resto == 0 ENTAO               
+        ESCREVA "O número é par!"        
+       // verifica se o resto é igual a zero
+      SENAO
+        ESCREVA "O número é impar!"
+
+      FIM_SE
+   // caso inteiro for negativo 
+   SENAO                               
+     ESCREVA "O número deve ser postivo!"
+
+   FIM_SE
+FIM
 ```
 
 #### Teste de mesa (0,25 ponto)
@@ -78,15 +88,24 @@ H --> I
 ```
 ALGORITMO SALARIO
 DECLARE salario, reajuste
+
 INICIO
-ESCREVA "Insira o seu salário"
-LEIA salario
-SE salario <= 500 ENTAO
-reajuste <- salario * *1.2
-ESCREVA "seu salário reajustado agora é", reajuste "reais"
-SENAO
-reajuste <- salario * *1.1
-ESCREVA "seu salário reajustado agora é", reajuste "reais"
+
+  // primeiro input para a análise do salário
+  ESCREVA "Insira o seu salário" 
+  LEIA salario
+
+  // checagem do valor, caso ele tenha os requisitos abaixo, terá um aumento de 20% no salário
+  SE salario <= 500 ENTAO       
+    reajuste <- salario * *1.2
+    ESCREVA "seu salário reajustado agora é", reajuste "reais"  // saída (aonde o usuário vê o reajuste do salário no primeiro caso)
+
+  // caso ele não se enquadre na condição acima, terá o desconto de 10% no salário
+  SENAO
+    reajuste <- salario * *1.1             
+    ESCREVA "seu salário reajustado agora é", reajuste "reais" // saída ( aonde o usuário vê o reajuste do salário no segundo caso)
+
+   FIM_SE
 FIM
 ```
 
@@ -120,17 +139,28 @@ H --> I([INICIO])
 ```
 ALGORITMO MEDIA
 DECLARE n1,n2,media : INTEIRO
+
 INICIO
-ESCREVA "Insira a primeira nota"
-LEIA n1
-ESCREVA "Insira a segunda nota"
-LEIA n2
-ESCREVA "Insira a média"
-LEIA media
-SE media >= (n1+n2)/2 ENTAO
-ESCREVA "você está aprovado!"
-SENAO
-ESCREVA "você está reprovado"
+
+  // primeiro input do código
+  ESCREVA "Insira a primeira nota" 
+  LEIA n1
+
+  // segundo input do código
+  ESCREVA "Insira a segunda nota"   
+  LEIA n2
+
+  // para poder selecionar qual média deseja inserir, pois nem todas são iguais 
+  ESCREVA "Insira a média"          
+  LEIA media
+
+  // cálculo utilizando os valóres inseridos pelo usuário 
+  SE media >= (n1+n2)/2 ENTAO       
+    ESCREVA "você está aprovado!"   // resultado caso dê True (ele esteja na média inserida pelo mesmo)
+
+  SENAO
+    ESCREVA "você está reprovado"   // resultado caso dê False (em que ele não se encaixa na média colocada)
+  FIM_SE
 FIM
 ```
 
@@ -168,14 +198,31 @@ G -->H
 ```
 ALGORITMOCNH
 DECLARE idade, anosfaltando
+
 INICIO
-ESCREVA "Insira sua idade"
-LEIA idade
-SE idade >= 18 ENTÃO
-ESCREVA "você está apto de tirar sua CNH!"
-SENAO
-anosfaltando <- (18 - idade)
-ESCREVA "você ainda não pode tirar sua carteira de motorista, faltam", anosfaltando "anos"
+
+  // primeira interação do usuário para dar início ao algorítmo 
+  ESCREVA "Insira sua idade" 
+  LEIA idade
+
+  // para garantir que o número não seja negativo
+  SE idade < 0  ENTAO        
+    ESCREVA "Insira uma idade positiva"
+  SENAO  
+
+    // caso não seja negativo, haverá checagem para saber o resultado do participante 
+    SE idade >= 18 ENTAO       
+      ESCREVA "você está apto de tirar sua CNH!"
+
+    // caso contrário, calculamos quantos anos faltam para ele poder tirar sua carteira 
+    SENAO                      
+      anosfaltando <- (18 - idade) 
+      ESCREVA "você ainda não pode tirar sua carteira de motorista, faltam", anosfaltando "anos"
+
+    FIM_SE
+
+  FIM_SE
+
 FIM
 
 ```
