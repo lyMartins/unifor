@@ -21,17 +21,23 @@ G --LOOP--> E
 
 #### Pseudocódigo
 ```
-1 ALGORITMO print_n_primeiros
-2 DECLARE n, num: INTEIRO
-3 INICIO
-4 ESCREVA “Digite um número: ”
-4 LEIA n			// variável de entrada n
-4 num ← 1			// variável num inicializada
-5 ENQUANTO num <= n FAÇA	// n iterações
-7	ESCREVA “Número ”, num
-8	num ← num + 1		// num =+ 1 (incremento)
-8 FIM_ENQUANTO
-9 FIM
+ALGORITMO print_n_primeiros
+DECLARE n, num: INTEIRO
+
+INICIO
+
+	ESCREVA “Digite um número: ”
+	LEIA n			// variável de entrada n
+
+	num ← 1			// variável num inicializada
+
+	ENQUANTO num <= n FAÇA	// n iterações
+		ESCREVA “Número ”, num
+
+		num ← num + 1		// num =+ 1 (incremento)
+
+	FIM_ENQUANTO
+FIM
 ```
 
 #### Teste de mesa
@@ -66,17 +72,24 @@ F --LOOP--> E
 
 #### Pseudocódigo
 ```
-1  ALGORITMO	soma_n_numeros()
-2  DECLARE	n, i, soma: INTEIRO
-3  INICIO
-4  ESCREVA “Digite a quantidade de números: ”
-5  LEIA n		// variável de entrada n
-7  soma ← 0		// variável soma inicializada
-6  PARA i DE 1 ATÉ n PASSO 1 FAÇA
-7	soma ← soma + i	// soma =+ i (incremento)
-8  FIM_PARA
-9  ESCREVA “A soma é igual a ”, soma
-10 FIM
+ALGORITMO	soma_n_numeros()
+DECLARE	n, i, soma: INTEIRO
+
+INICIO
+
+	ESCREVA “Digite a quantidade de números: ”
+	LEIA n		// variável de entrada n
+
+	soma ← 0		// variável soma inicializada
+
+	PARA i DE 1 ATÉ n PASSO 1 FAÇA
+
+		soma ← soma + i	// soma =+ i (incremento)
+
+	FIM_PARA
+
+	ESCREVA “A soma é igual a ”, soma
+FIM
 ```
 
 #### Teste de mesa
@@ -102,7 +115,6 @@ Atualize o algoritmo para determinar se um número inteiro e positivo é par ou 
 
 ```mermaid
 flowchart TD
-flowchart TD
 A([INICIO]) --> B{{Digite um número}}
 B --> C[\num,res\]
 C --> D{num<=0}
@@ -118,22 +130,36 @@ G-->I
 #### Pseudocódigo (1.0 ponto)
 
 ```
- ALGORITMO par ou impar
- DECLARE num, res : inteiro
- INICIO
- ESCREVA "Digite um número"
- LEIA  num
- ENQUANTO num < 0 FAÇA
- ESCREVA "Digite um número positivo"
- FIM_ENQUANTO
- SE num>=0 ENTAO
- res <- n%2 
- SE res == 0 ENTAO
- ESCREVA "esse número 'num' é par"
- SENAO
- ESCREVA "esse número 'num' é impar"
- FIM_SE
- FIM
+ALGORITMO par ou impar
+DECLARE num, res : inteiro
+
+INICIO
+
+	ESCREVA "Digite um número"
+	LEIA  num
+
+	ENQUANTO num < 0 FAÇA
+		ESCREVA "Digite um número positivo"
+
+	FIM_ENQUANTO
+
+	SE num>=0 ENTAO
+		res <- n%2 
+
+			SE res == 0 ENTAO
+				ESCREVA "esse número 'num' é par"
+
+		
+			SENAO
+				ESCREVA "esse número 'num' é impar"
+
+			FIM_SE
+	SENAO
+		ESCREVA "O número deve ser positivo!"
+
+	FIM_SE
+
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
@@ -165,26 +191,36 @@ G-->H([FIM])
 #### Pseudocódigo (1.0 ponto)
 
 ```
- ALGORITMO Contagem30
- DECLARE num
- INICIO
-num <- 0
-ENQUANTO num <= 30 FAÇA
-num % 3 = 0 ENTAO
-ESCREVA num
-FIM SE 
-num <- num + 3
-FIM ENQUANTO
- FIM
+ALGORTIMO MultiploTres
+DECLARE n: INTEIRO
+
+INICIO
+
+	// Variável n como dado de entrada
+	ESCREVA "Digite a quantidade de números:"
+
+	// Armazena o valor de entrada na variável "n"
+	LEIA n
+
+	//  Loop contado (loop for) executa as instruções a cada iteração dos valores de 'i' de 0 até n-1, incrementando 'i' em 3.
+	PARA i DE 0 ATÉ n-1 PASSO 3 FAÇA
+
+		// Exibe cada resultado das iterações feitas
+		ESCREVA i
+
+	FIM_PARA
+
+FIM
 
 ```
 
 #### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| it | n   | i  | saida | 
+| -- | --  | -- | --    |    
+| 1  | 7   | 0  | 0     |
+| 2  | 7   | 3  | 3     |
+| 3  | 7   | 6  | 6     |
 
 ### Exercício 03 (2.5 pontos)
 Dada uma sequência de números inteiros, calcular a sua soma. 
@@ -193,44 +229,75 @@ Por exemplo, para a sequência {12, 17, 4, -6, 8, 0}, o seu programa deve escrev
 #### Fluxograma (1.0 ponto)
 
 ```mermaid
-A([INICIO]) --> B{{Digite um número}}
-B --> C[\num,res\]
-C --> D{num<=0}
-D--loop-->B
-D--TRUE-->E[res = num % 2]
-E-->F{res == 0}
-F--FALSE-->G{{esse número 'num' é impar}}
-F--TRUE-->H{{esse número 'num' é par}}
-H-->I([FIM])
-G-->I
+flowchart TD
+A([INICIO]) --> B{{"Digite a quantidade de números:"}}
+B --> C[\n\]
+C --> D[i = 1]
+D --> E[soma = 0]
+E --> F{i <= n}
+F --FALSE--> G{{A soma dos número é, soma}}
+G --> L([FIM])
+F --TRUE--> H{{Digite o número, i,:}}
+H --> I[\num\]
+I --> J[soma = soma + num]
+J --> K[i = i + 1]
+K --LOOP--> F
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
- ALGORITMO Soma
- DECLARE sequencia, tamanho, soma, i : INTEIRO
- INICIO
- ESCREVA "Insira o tamanho da sequencia"
- Leia tamanho
- PARA i DE 0 A tamanho-1 FAÇA
- ESCREVA "Digite um valor inteiro 'i+1' : "
- LEIA sequencia[i] 
- FIM PARA
+ALGORITMO SomaValores
+DECLARE n,i: INTEIRO; soma,num: REAL
 
-soma <- 0
-PARA i DE 0 A  tamanho -1 FAÇA 
-	soma <- soma + sequencia[i]
-	FIM PARA 
-	ESCREVA "A soma dos números é: " ,  soma
+INICIO
+
+	// Dado de entrada armezenado na variável n
+	ESCREVA "Digite a quantidade de números:"
+
+	// Armazena o valor de entrada na variável "n"
+	LEIA n
+
+	// Inicializa a variável "soma" em 0
+	soma <- 0
+
+	// Inicializa a variável "i" em 1
+	i <- 1
+
+	// Loop condicional (loop while) executa as instruções enquanto a condição "i <= n" for verdadeira
+	ENQUANTO i <= n FAÇA
+
+		// Exibe a mensagem solictando o número em cada iteração
+		ESCREVA "Digite o número", i,":"
+
+		// Armazena o valor de entrada na variável "num"
+		LEIA num
+
+		// Incrementa "num" na variável "soma" em cada iteração
+		soma <- soma + num
+
+		// Incrementa 1 na variável "num" em cada iteração
+		i <- i + 1
+
+	FIM_ENQUANTO
+
+	// Exibe a mensagem concatenando aos caracteres "A soma dos número é" com a variável "soma".
+	ESCREVA "A soma dos número é", soma
+
+FIM
 ```
 
-#### Teste de mesa (0.5 ponto)
+#### Tabela de testes (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+| n  | soma | i  | i <= n | num | soma + num | i + 1   | saída                      |  
+| -- | --   | -- | --     | --  | --         | --      | --                         |
+| -1 | 0    | 1  | False  |     |            |         | A soma dos número é 0      |
+| 0  | 0    | 1  | False  |     |            |         | A soma dos número é 0      |
+| 3  | 0    | 1  | True   | 10  | 0+10 = 10  | 1+1 = 2 |                            |
+| 3  | 10   | 2  | True   | 20  | 10+20 = 30 | 2+1 = 3 |                            |
+| 3  | 30   | 3  | True   | 30  | 30+30 = 60 | 3+1 = 4 |                            |
+| 3  | 60   | 4  | False  |     |            |         | A soma dos número é 60     |
+
 
 ### Exercício 04 (2.5 pontos)
 Escreva um programa que leia a nota de diversos alunos, até que seja digitada uma nota negativa. 
@@ -241,8 +308,19 @@ Ex. Foram lidas 14 notas. A média aritmética é 6.75!
 
 ```mermaid
 flowchart TD
-A([INICIO]) -->B{{Digite a nota do aluno}}
-B-->C
+A([INICIO]) --> B[/soma/]
+B --> C[/cont/]
+C --> D{{"Digite a nota do aluno (nota negativa finaliza): "}}
+D --> E{nota >= 0}
+E --FALSE--> F{cont > 0}
+F --FALSE--> Z([FIM]) 
+F --TRUE--> G[media = soma / cont]
+G --> H{{Foram lidas, cont, notas. A média aritmética é, media!}}
+H --> Z
+E --TRUE--> I[soma += nota]
+I --> J[cont += 1]
+J --> K{{"Digite a nota do aluno (nota negativa finaliza): "}}
+K --LOOP-->  E
 ```
 
 #### Pseudocódigo (1.0 ponto)
@@ -273,9 +351,21 @@ INICIO
 	FIM 
 ```
 
-#### Teste de mesa (0.5 ponto)
 
-| nome_coluna1 | nome_coluna2 | nome_coluna3 | nome_coluna4 | nome_coluna5 | 
-|      --      |      --      |      --      |      --      |      --      | 
-| Adicione     | espaço       | se quiser    |  alinhar     | as barras    |
-| verticais,   | mas          | não é        | obrigatório. | Entendido ?  |
+#### Tabela de testes
+
+| it  | nota  | soma  | cont | nota >= 0 | soma + nota     | cont + 1 | nota    | cont > 0 | media          | saída                                            | 
+| --  | --    | --    | --   | --        | --              | --       | --      | --       | --             | --                                               |
+| 1   | -1.0  | 0.0   | 0    | False     |                 |          |         | False    |                |                                                  |
+
+| it  | nota  | soma  | cont | nota >= 0 | soma + nota     | cont + 1 | nota    | cont > 0 | media          | saída                                            | 
+| --  | --    | --    | --   | --        | --              | --       | --      | --       | --             | --                                               |
+| 1   | 0.0   | 0.0   | 0    | True      | 0.0+0.0 = 0.0   | 0+1 = 1  | -1.0    |          |                |                                                  |
+| 2   | -1.0  | 0.0   | 1    | False     |                 |          |         | True     | 0.0/1 = .0     | Foram lidas 1 nota(s). A média aritmética é 0.0! |
+
+| it  | nota  | soma  | cont | nota >= 0 | soma + nota     | cont + 1 | nota    | cont > 0 | media          | saída                                            | 
+| --  | --    | --    | --   | --        | --              | --       | --      | --       | --             | --                                               |
+| 1   | 4.0   | 0.0   | 0    | True      | 0.0+4.0 = 4.0   | 0+1 = 1  | 8.0     |          |                |                                                  |
+| 2   | 8.0   | 4.0   | 1    | True      | 4.0+8.0 = 12.0  | 1+1 = 2  | 6.0     |          |                |                                                  |
+| 3   | 6.0   | 12.0  | 2    | True      | 12.0+6.0 = 18.0 | 2+1 = 3  | -8.0    |          |                |                                                  |
+| 4   | -8.0  | 18.0  | 3    |           |                 |          |         | True     | 18.0/3.0 = 6.0 | Foram lidas 3 nota(s). A média aritmética é 6.0! |
