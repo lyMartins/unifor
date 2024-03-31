@@ -1,7 +1,7 @@
 
 # UNIFOR
 **Nome**: Carlyle Martins<br>
-**Disciplina**: Raciocínio lógico algorítm
+**Disciplina**: Raciocínio lógico algorítmo
 
 ## Exercício exemplo
 Represente, em fluxograma e pseudocódigo, um algoritmo para calcular o adicional de salário de funcionário por cargo de uma empresa fictícia. Sabe-se que os funcionários de cargo técnico receberão reajuste de 50%, cargo de gerência, um reajuste de 30% e demais, um reajuste de 10%. 
@@ -24,20 +24,32 @@ J --> I
 
 #### Pseudocódigo
 ```
-1  ALGORITMO calReajuste
-2  DECLARE  sal, sal_reaj: real, prof: caractere
-3  INICIO
-4  LEIA sal, prof
-5  ESCOLHA
-6   CASO prof == “Técnico”		// caso 1
-7     sal_reaj ← 1.5 * sal
-8   CASO prof = “Gerente”		// caso 2
-9     sal_reaj ← 1.3 * sal
-10  SENÃO
-11    sal_reaj ← 1.1 * sal
-12 FIM_ESCOLHA
-13 ESCREVA “Salário Reajustado = “, sal_reaj
-14 FIM
+  ALGORITMO calReajuste
+  DECLARE  sal, sal_reaj: real, prof: caractere
+
+  INICIO
+
+	LEIA sal, prof
+	ESCOLHA
+
+		// caso ele seja um Técnico, terá o salário aumentado em 50%
+		CASO prof == “Técnico”		
+			sal_reaj ← 1.5 * sal
+
+		// caso ele seja Gerente, terá o salário aumentado em 30%
+		CASO prof = “Gerente”		
+     			sal_reaj ← 1.3 * sal
+
+	// se a escolha não corresponder a nenhum dos dois casos, o funcionário terá um aumento de 10%
+	SENÃO
+           sal_reaj ← 1.1 * sal
+
+	FIM_ESCOLHA
+
+	// saída (ainda o funcionário verá o reajuste de seu salário)
+ 	ESCREVA “Salário Reajustado = “, sal_reaj
+
+  FIM
 ```
 
 #### Teste
@@ -54,7 +66,7 @@ Calcule a média de quatro números inteiros dados.
 
 #### Fluxograma (1.0 ponto)
 
-``` 	mermaid
+``` mermaid
 flowchart TD
 A([inicio])-->B{{Digite os 4 números que você quer a média : }}
 B-->C[/N1,N2,N3,N4/]
@@ -67,14 +79,30 @@ E-->F([FIM])
 #### Pseudocódigo (1.0 ponto)
 
 ```
-1  ALGORITMO Média
-2  DECLARE N1,N2,N3,N4, média : INTEIRO
-3  INICIO
-4 ESCREVA " Digite os 4 números que quer a média"
-5 LEIA N1 e N2 e N3 e N4
-6  Média=(Numero1+Numero2+Numero3+Numero4)/4
-7 ESCREVA "Sua média é 'Média'"
-15 FIM
+ALGORITMO Média
+DECLARE N1,N2,N3,N4, média : INTEIRO
+
+INICIO
+	// registro do primeiro número
+	ESCREVA " Digite o número 1 :"
+	LEIA N1
+
+	// registro do primeiro número
+	ESCREVA " Digite o número 2 :"
+	LEIA N2
+
+	// registro do primeiro número
+	ESCREVA " Digite o número 3 :"
+	LEIA N3
+
+	// registro do primeiro número
+	ESCREVA " Digite o número 4 :"
+	LEIA N4 
+
+	// cálculo da média dos números registrados anteriormente
+	Média=(Numero1+Numero2+Numero3+Numero4)/4
+	ESCREVA "Sua média é 'Média'"
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
@@ -104,18 +132,16 @@ E-->F([FIM])
 #### Pseudocódigo (1.0 ponto)
 
 ```
-#### Pseudocódigo
-```
-1  ALGORITMO Farenheight
-2  DECLARE C,F : Real
-3  INICIO
-4 ESCREVA "Insira quantos graus Celsius você quer converter"
-5 LEIA C
-6  F <- (9/5) * C + 32
-7 ESCREVA "A conversão de ", C, " graus Celsius para 
-8 Fahrenheit é ", F, " graus Fahrenheit"
-9 FIM
-```
+ALGORITMO Farenheight
+DECLARE C,F : Real
+
+INICIO
+	ESCREVA "Insira quantos graus Celsius você quer converter"	// para inserir quantos graus o usuário quer converter
+	LEIA C
+	F <- (9/5) * C + 32						// cálculo de conversão de celsius para farenheight
+	ESCREVA "A conversão de ", C, " graus Celsius para 		// saída (aonde o usuário vai ver o resultado da conversão)
+	Fahrenheit é ", F, " graus Fahrenheit"
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
@@ -131,64 +157,95 @@ E-->F([FIM])
 Receba dois números reais e um operador e efetue a operação correspondente com os valores recebidos (operandos). 
 O algoritmo deve retornar o resultado da operação selecionada simulando todas as operações de uma calculadora simples.
 
+
 #### Fluxograma (1.0 ponto)
 
 ```mermaid
 flowchart TD
 A([inicio])-->B{{Insira o Primeiro número da operação }}
-B-->C[/N1,N2,Resultado/]
-C-->D{{Insira o Segundo número da operação}}
-D-->E{{"Insira o operador que quer usar (+,-,*,/)"}}
-E-->F{OPERADOR=='+'}
-E-->G{OPERADOR=='-'}
-E-->H{OPERADOR=='*'}
-E-->I{OPERADOR=='/'}
-F-->J[Resultado = N1-N2]
-G-->K[Resultado = N1-N2]
-H-->L[Resultado = N1*N2]
-I-->M{N2 != 0}
-M-->N[Resultado = N1/N2]
-N--SENAO-->O{{Não se pode dividir um número por 0}}
-O--SENAO-->P{{Operador inválido}}
-N-->Q{{Seu Resultado é , 'Resultado'}}
-J-->Q
-K-->Q
-L-->Q
-Q-->R([FIM])
-P-->R
+B -->C[/N1,N2,Resultado/]
+C -->D{{Insira o Segundo número da operação}}
+D -->E{{"Insira o operador que quer usar (+,-,*,/)"}}
+E -->F{OPERADOR=='+'}
+F --SENAO-->G{OPERADOR=='-'}
+G --SENAO-->H{OPERADOR=='*'}
+H --SENAO-->I{OPERADOR=='/'}
+F --SENAO-->J[Resultado = N1-N2]
+G -->K[Resultado = N1-N2]
+H -->L[Resultado = N1*N2]
+I -->M{N2 != 0}
+M -->N[Resultado = N1/N2]
+N --SENAO-->O{{Não se pode dividir um número por 0}}
+O -->P{{Operador inválido}}
+N -->Q{{Seu Resultado é , 'Resultado'}}
+J -->Q
+K -->Q
+L -->Q
+Q -->R([FIM])
+P -->R
 ```
 
 #### Pseudocódigo (1.0 ponto)
 
 ```
-1  ALGORITMO Operações Matemáticas
-2  DECLARE N1,N2,Resultado : REAL
-	OPERADOR : CARACTER
-3  INICIO
-4 ESCREVA "Insira o Primeiro número da operação"
-5 LEIA N1 
-6 ESCREVA "Insira o Segundo número da operação"
-7 LEIA N2
-6 ESCREVA "Insira o operador que quer usar (+,-,*,/)"
-7 Leia OPERADOR	
-8 Se OPERADOR == "+"ENTAO
-9 Resultado <- N1+N2
-10 SENAO SE OPERADOR == "-" ENTAO
-11 Resultado <- N1-N2
-12 SENAO SE OPERADOR == "*" ENTAO
-13 Resultado <- N1*N2
-14 SENAO SE OPERADOR == "/" ENTAO
-15 SE N2 !=0 ENTAO 
-16 Resultado <- N1/N2
-17 SENAO
-18 ESCREVA "Não se pode dividir um número por 0"
-19 SENAO
-20	 ESCREVA "Operador Inválido"
-21 FIM SE
-22 SE OPERADOR == "+" OU OPERADOR == "-" OU OPERADOR == "*" OU OPERADOR == "/" ENTAO
-23 ESCREVA "Seu Resultado é ", Resultado
-24 FIM SE
-25 FIM
+ALGORITMO Operações Matemáticas
+DECLARE N1,N2,Resultado : REAL
+OPERADOR : CARACTER
+
+INICIO
+
+	// para especificar qual o comando da respectiva operação
+	ESCREVA "Operações válidas: 1(soma), 2(subtração), 3(multiplicação), 4(divisão)"
+
+	// selecionando alguma operação indicada
+	ESCREVA "Insira a operação que quer usar"
+	LEIA OPERADOR
+
+	// Registrando o primeiro número
+	ESCREVA "Insira o Primeiro número da operação"
+	LEIA N1 
+
+	// Registrando o segundo número
+	ESCREVA "Insira o Segundo número da operação"
+	LEIA N2	
+
+	// Resultado caso seja uma soma 
+	SE OPERADOR == "1" ENTAO
+	Resultado <- N1+N2
+
+	// Resultado caso seja uma subtração 
+	SENAO SE OPERADOR == "2" ENTAO
+	Resultado <- N1-N2
+
+	// Resultado caso seja uma multiplicação  
+	SENAO SE OPERADOR == "3" ENTAO
+		Resultado <- N1*N2
+
+	// Resultado caso seja uma divisão 
+	SENAO SE OPERADOR == "4" ENTAO
+
+		// checagem para garantir que o denominador não seja zero
+		SE N2 !=0 ENTAO 
+
+		Resultado <- N1/N2
+
+		// caso seja igual a 0, retornará essa mensagem
+		SENAO
+		ESCREVA "Não se pode dividir um número por 0"
+
+	// caso não insiram algum operador indicado
+	SENAO
+	ESCREVA "Operador Inválido"
+
+	FIM_SE
+
+	// saída do resultado para a respectíva operação 
+	SE OPERADOR == 1 OU OPERADOR == 2 OU OPERADOR == 3 OU OPERADOR == 4 ENTAO
+	ESCREVA "Seu Resultado é ", Resultado
+
+	FIM SE
+
+FIM
 ```
 
 #### Teste de mesa (0.5 ponto)
@@ -207,22 +264,25 @@ Elaborar um algoritmo que, dada a idade, classifique nas categorias: infantil A 
 
 ```mermaid
 flowchart TD
-A([inicio])-->B{{Insira a sua idade }}
-B-->C[/idade/]
-C-->E{idade >=5 E <=7}
-E--SENAO-->F{idade >=8 E <=10}
-F--SENAO-->G{idade >=11 E <=13}
-G--SENAO-->H{idade >=14 E <=17}
-E-->J{{sua idade se enquadra como infantil}}
-F-->L{{sua idade se enquadra como juvenil A}}
-G-->N{{sua idade se enquadra como juvenil B}}
-H-->P{{sua idade se enquadra como juvenil C}}
-H--SENAO-->T{{sua idade se enquadra como adulta}}
-J-->U([FIM])
-L-->U
-N-->U
-P-->U
-T-->U
+A([INICIO]) --> B{{"Digite a idade do aluno:"}}
+B --> C[/idade/]
+C --> D{idade >=5 <br>E <br>idade <= 7}
+D --FALSE--> F{idade >=8 <br>E <br>idade <= 10}
+F --FALSE--> G{idade >=11 <br>E <br>idade <= 13}
+G --FALSE--> H{idade >=14 <br>E <br>idade <= 17}
+H --FALSE--> I{idade >=18}
+I --FALSE--> P{{"Digite uma idade válida!"}}
+P --> Z([FIM])
+D --TRUE--> Q{{Infantial A}}
+F --TRUE--> K{{"Infantial B"}}
+G --TRUE--> L{{Juvenil A}}
+H --TRUE--> M{{Juvenil B}}
+I --TRUE--> N{{Adulto}}
+Q --> Z
+K --> Z
+L --> Z
+M --> Z
+N --> Z
 ```
 
 #### Pseudocódigo (1.0 ponto)
@@ -230,19 +290,60 @@ T-->U
 ```
 Algotimo IDADE
 DECLARE idade : INTEIRO
-ESCREVA "Insira a sua idade"
-LEIA idade
-SE idade >=5 E <=7 ENTAO
-ESCREVA "sua idade se enquadra como infantil"
-SENAO SE idade >=8 E <=10 ENTAO
-ESCREVA "sua idade se enquadra como juvenil A"
-SENAO SE idade >=11 E <=13 ENTAO
-ESCREVA "sua idade se enquadra como juvenil B"
-SENAO SE idade >=14 E <=17 ENTAO
-ESCREVA "sua idade se enquadra como juvenil C"
-SENAO 
-ESCREVA "sua idade se enquadra como adulto"
-FIM SE 
+
+INICIO
+ALGORTIMO ClassificaCategoria
+DECLARE idade: INTEIRO
+
+INICIO
+
+    // Input para receber o dado da idade
+    ESCREVA "Digite a idade do aluno:"
+
+    // registrando o dado
+    LEIA idade
+
+    // Início de uma estrutura de "casos"
+    ESCOLHA
+
+        // caso que se torna verdade se a idade for maior ou igual a 5 e menor ou igual a 7
+        CASO idade >=5 E idade <= 7
+
+            // aparecerá que a idade do aluno se enquadra como Infantil A
+            ESCREVA "Infantial A"
+
+        // caso que se torna verdade se a idade for maior ou igual a 8 e menor ou igual a 10
+        CASO idade >=8 E idade <= 10
+
+            // aparecerá que a idade do alunose enquadra como Infantil B
+            ESCREVA "Infantial B"
+
+        // caso que se torna verdade se a idade for maior ou igual a 11 e menor ou igual a 13
+        CASO idade >=11 E idade <= 13
+
+            // aparecerá que a idade do aluno se enquadra como Juvenil A
+            ESCREVA "Juvenil A"
+
+        // caso que se torna verdade se a idade for maior ou igual a 14 e menor ou igual a 17
+        CASO idade >=14 E idade <= 17
+
+            // aparecerá que a idade do aluno se enquadra como Juvenil B
+            ESCREVA "Juvenil B"
+
+        // caso que se torna verdade se a idade for maior ou igual a 18
+        CASO idade >=18
+
+            // aparecerá que a idade do aluno se enquadra como Adulto
+            ESCREVA "Adulto"
+
+    // Insira seu comentário
+    SENAO
+
+        // Insira seu comentário
+        ESCREVA "Digite uma idade válida!"
+
+    FIM_ESCOLHA
+
 FIM
 ```
 
