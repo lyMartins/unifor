@@ -67,16 +67,27 @@ I --> J{{"b =", b}}
 
 ```
 Algoritmo TrocaValores
-DECLARE a,b 
-ESCREVA "Digite o valor da a"
-LEIA a
-ESCREVA "Digite o valor da b"
-LEIA b
-aux <- a
-a <- b
-aux <- b
-ESCREVA "a =", a
-ESCREVA "b =", b
+DECLARE a,b
+
+INICIO
+
+	ESCREVA "Digite o valor da a"
+
+	LEIA a
+
+	ESCREVA "Digite o valor da b"
+
+	LEIA b
+
+	aux <- a
+
+	a <- b
+
+	aux <- b
+
+	ESCREVA "a =", a
+
+	ESCREVA "b =", b
 ```
 
 #### Teste de mesa (0.25 ponto)
@@ -116,21 +127,36 @@ K --LOOP--> F
 ```
 Algoritmo ContaAprovacoes
 DECLARE n,nota,cont,i : REAIS
+
 INICIO
-ESCREVA "Digite o numero de alunos :"
-LEIA n
-cont = 0
-i = 1
-ENQUANTO i<=n FAÇA
-	ESCREVA "Digite nota do aluno",i
-	LEIA nota
-	SE nota>=50 E 100>=nota  ENTAO
-		cont = cont+1
-	SENAO
-		i = i + 1
-	FIM SE
-FIM ENQUANTO
-ESCREVA "Numero de alunos aprovados :", cont
+
+	ESCREVA "Digite o numero de alunos :"
+
+	LEIA n
+
+	cont = 0
+
+	i = 1
+
+	ENQUANTO i<=n FAÇA
+
+		ESCREVA "Digite nota do aluno",i
+
+		LEIA nota
+
+		SE nota>=50 E 100>=nota  ENTAO
+
+			cont = cont+1
+
+		SENAO
+
+			i = i + 1
+
+		FIM SE
+
+	FIM ENQUANTO
+
+	ESCREVA "Numero de alunos aprovados :", cont
 FIM
 ```
 
@@ -157,20 +183,33 @@ A([INICIO]) --> B([FIM])
 
 ```
 Algoritmo ContaAprovacoes
+DECLARE n,i,soma: INTEIRO
+
 INICIO
-DECLARE n,num,soma
-ESCREVA "Digite a quantidade de números (n>=):"
-SE n >= 0 ENTAO
-soma = 0
-i=0
-SENAO
-ESCREVA "O valor deve ser maior ou igual a zero"
-ENQUANTO i <= n FAÇA
-ESCREVA "Digite um número:"
-soma =+ num
-i= +1
-SENAO
-ESCREVA "A soma dos numeros é, soma"
+
+	ESCREVA "Digite a quantidade de números (n>=):"
+
+	SE n >= 0 ENTAO
+
+		soma = 0
+
+		i=0
+
+	SENAO
+
+		ESCREVA "O valor deve ser maior ou igual a zero"
+
+	ENQUANTO i <= n FAÇA
+
+		ESCREVA "Digite um número:"
+
+		soma =+ num
+
+		i= +1
+
+	SENAO
+		ESCREVA "A soma dos numeros é, soma"
+
 FIM
 
 ```
