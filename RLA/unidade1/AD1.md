@@ -240,20 +240,20 @@ INICIO
 		ESCREVA "O valor deve ser maior ou igual a zero"
 
 
-	// loop que se manteem enquanto i for menor ou igual a n 
-	ENQUANTO i <= n FAÇA
-
-		// insira o número que deseja somar 
-		ESCREVA "Digite um número:"
-
-		// soma se inicia com 0, tendo cada loop aumentando com base nos números inseridos pelo usuário 
-		soma =+ num
-
-		// a cada loop se acrescenta 1 ao i para que possa ser levado até o valor de n 
-		i= +1
-
-	// simboliza o fim da estrutura do looping
-	FIM_ENQUANTO
+		// loop que se manteem enquanto i for menor ou igual a n 
+		ENQUANTO i <= n FAÇA
+	
+			// insira o número que deseja somar 
+			ESCREVA "Digite um número:"
+	
+			// soma se inicia com 0, tendo cada loop aumentando com base nos números inseridos pelo usuário 
+			soma =+ num
+	
+			// a cada loop se acrescenta 1 ao i para que possa ser levado até o valor de n 
+			i= +1
+	
+		// simboliza o fim da estrutura do looping
+		FIM_ENQUANTO
 
 	// caso seja falso, o algoritmo emitirá uma mensagem no terminal e se encerrará
 	SENAO
@@ -320,7 +320,7 @@ INICIO
 	S = 0
 
 	// looping que se manteem da iteração 0 até a iteração n 
-	PARA i DE 0 ATÉ n  PASSO 1 FAÇA
+	PARA i DE 0 ATÉ n-1  PASSO 1 FAÇA
 	
 		// calculo do númerador que respeita a ordem dada questão, tendo i multiplicado em 2 e somado a 1 a cada iteraçao 
 		numerador = 2 * i + 1
@@ -413,6 +413,9 @@ INICIO
 	
 		// saída que sinaliza que o valor deve inteiro e não-negativo
 		ESCREVA "O valor deve ser maior ou igual a zero"
+
+		// finaliza a estrutura de SE
+		FIM_SE
 
 FIM
 ```
